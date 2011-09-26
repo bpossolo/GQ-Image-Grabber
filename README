@@ -14,3 +14,19 @@ Additionally, it has some utility functions for listing all the designers on GQ 
 
 The total size of the image database it pulls is over 6GB.
 Images are downloaded in JPG format.
+
+How to use this script:
+
+./image-grabber.sh
+./image-grabber.sh DESIGNER [DESIGNER...]
+./image-grabber.sh -d DESIGNER -s SEASON
+./image-grabber.sh -d DESIGNER --list-seasons
+./image-grabber.sh --list-designers
+./image-grabber.sh --all
+
+    In the first form, the script prints this help message.
+    In the second form, the script downloads all images for the specified designer keys.
+    In the third form, the script downloads images of the given season for the specified designer key.
+    In the fourth form, the script prints the list of seasons available for the specified designer key.
+    In the fifth form, the script prints the list of designer keys.
+    In the sixth form, the script downloads all images of all designers.
