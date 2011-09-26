@@ -1,0 +1,16 @@
+This shell script downloads every runway collection from GQ in high res.
+Some seasons are only available in a lower resolution so in those cases it gets the best possible).
+These are the ultra-high res images available on GQ's Flash-based slideshows!
+
+It also downloads detail pictures in the highest resolution available.
+
+You can specify a designer and season if you only want one collection.
+You can also choose a list of designers so it will retrieve every season for those specified designers.
+
+It runs on Linux and Mac OS X.
+The DownThemAll Firefox plugin does not even come close to doing what this does.
+
+Additionally, it has some utility functions for listing all the designers on GQ and for listing all the seasons available for a given designer.
+
+The total size of the image database it pulls is over 6GB.
+Images are downloaded in JPG format.
