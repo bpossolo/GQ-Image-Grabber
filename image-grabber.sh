@@ -78,6 +78,7 @@ for designerKey in $designerKeys ; do
 
 	echo "Processing designer [$designerKey]"
 	
+	#check fall and summer URLs for season list since some designers do not have a fall collection
 	if [ -z "$seasons" ]; then
 		seasons=`curl -s http://www.gq.com/fashion-shows/brief/F2011MEN-$designerKey | sed -n -f regex/season-regex`
 	fi
