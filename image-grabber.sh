@@ -108,7 +108,7 @@ for designerKey in $designerKeys ; do
 		runwayCounter=0
 		detailCounter=0
 		
-		mkdir -p $runwayImagesDir
+		test ! -d $runwayImagesDir && mkdir -p $runwayImagesDir
 		
 		for url in $imageUrls ; do
 			
