@@ -9,10 +9,6 @@
 # Date: Sep 25 2011
 #############################################
 
-rm -rf tmp
-mkdir tmp
-test ! -d images && mkdir images
-
 declare -a designerKeys
 declare -a seasons
 
@@ -63,6 +59,9 @@ elif [ $# -eq 4 -a "$1" == "-d" -a "$3" == "-s" ]; then
 else
 	designerKeys=$@
 fi
+
+rm -rf tmp
+mkdir tmp
 
 #############################################
 # download the images
