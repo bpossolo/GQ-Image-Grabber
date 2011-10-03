@@ -1,1 +1,1 @@
-s|.*<a href="/fashion-shows/brief/\([FS]20[[:digit:]][[:digit:]]MEN\)-.*">\1</a>.*|\1|p
+s|.*<a href="/fashion-shows/brief/\([FS]20[[:digit:]][[:digit:]]MEN\)-.*">.*</a>.*|\1|p

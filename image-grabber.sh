@@ -41,24 +41,18 @@ if [ $# -eq 0 ]; then
 
 elif [ $1 == "--all" ]; then
 
-	designerKeys=`curl -s http://www.gq.com/fashion-shows/ | sed -n -f regex/designer-key-regex`
+	designerKeys=`curl -s http://www.gq.com/fashion-shows/designer-directory/ | sed -n -f regex/designer-key-regex`
 	
 elif [ $1 == "--list-designers" ]; then
 	
 	echo "---List of designer keys---"
-	curl -s http://www.gq.com/fashion-shows/ | sed -n -f regex/designer-map-regex
+	curl -s http://www.gq.com/fashion-shows/designer-directory/ | sed -n -f regex/designer-map-regex
 	exit 0
 
 elif [ $# -eq 3 -a "$1" == "-d" -a "$3" == "--list-seasons" ]; then
 
 	echo "---List of seasons for designer key $2---"
-	seasons=`curl -s http://www.gq.com/fashion-shows/brief/F2011MEN-$2 | sed -n -f regex/season-regex`
-	if [ -z "$seasons" ]; then
-		seasons=`curl -s http://www.gq.com/fashion-shows/brief/S2010MEN-$2 | sed -n -f regex/season-regex`
-	fi
-	for season in $seasons; do
-		echo $season
-	done
+	curl -s http://www.gq.com/fashion-shows/designer-directory/$2 | sed -n -f regex/season-regex
 	exit 0
 
 elif [ $# -eq 4 -a "$1" == "-d" -a "$3" == "-s" ]; then
@@ -78,12 +72,8 @@ for designerKey in $designerKeys ; do
 
 	echo "Processing designer [$designerKey]"
 	
-	#check fall and summer URLs for season list since some designers do not have a fall collection
 	if [ -z "$seasons" ]; then
-		seasons=`curl -s http://www.gq.com/fashion-shows/brief/F2011MEN-$designerKey | sed -n -f regex/season-regex`
-	fi
-	if [ -z "$seasons" ]; then
-		seasons=`curl -s http://www.gq.com/fashion-shows/brief/S2010MEN-$designerKey | sed -n -f regex/season-regex`
+		seasons=`curl -s http://www.gq.com/fashion-shows/designer-directory/$designerKey | sed -n -f regex/season-regex`
 	fi
 	
 	for season in $seasons ; do
@@ -106,8 +96,8 @@ for designerKey in $designerKeys ; do
 		
 		runwayImagesDir=images/$designerKey/$season/runway
 		detailsImagesDir=images/$designerKey/$season/details
-		runwayCounter=0
-		detailCounter=0
+		runwayCounter=1
+		detailCounter=1
 		
 		test ! -d $runwayImagesDir && mkdir -p $runwayImagesDir
 		
