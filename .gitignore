@@ -1,3 +1,5 @@
 images/
 tmp/
 .DS_Store/
+images*
+*~
