@@ -122,4 +122,4 @@ done
 
 rm -rf tmp
 
-echo "Finished downloading files from GQ!"
+echo "Finished downloading files from GQ! Enjoy!"
